@@ -1,0 +1,29 @@
+
+    -------------------  for project 3
+    * Write a command that imports the data from drop_pollutants.csv to a database called `epa` and a collection called `air_pollution`
+
+    ```shell
+    mongoimport --type csv -d proj3 -c air_pollution --headerline --drop drop_pollutants.csv
+    ```
+
+    * Run `mongo` from the Terminal to launch Mongo.
+    ```shell
+mongosh
+```
+
+    * Use the `proj3` database.
+
+    ```shell
+    use proj3
+    ```
+
+* Show all the collections in the `epa` database.
+
+    ```shell
+    show collections
+    `
+    control -C  twice * to exit mongodb
+    ---
+from https://database.guide/export-a-mongodb-collection-to-a-json-file/
+
+    mongoexport --db=proj3 --collection=air_pollution --out=data/air_pollution.json
