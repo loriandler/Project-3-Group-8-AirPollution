@@ -26,7 +26,7 @@ def read_data():
 # 4. Define what to do when a user hits the /about route
 @app.route("/test")
 def test():
-    return 'This is the test route!'
+    return 'This is working...This is the test route!'
 
 
 if __name__ == "__main__":

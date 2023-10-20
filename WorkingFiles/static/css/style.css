@@ -1,0 +1,65 @@
+/* styles.css */
+
+/* Apply styles to the body element */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply styles to headings */
+h1 {
+    color: navy;
+}
+
+/* Apply styles to paragraphs */
+p {
+    color: #333;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+/* Apply styles to containers */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Apply styles to jumbotron */
+.jumbotron {
+    background-image: url('images/air_pollution_image.png');
+    background-size: cover;
+    color: white;
+    text-align: center;
+    padding: 100px 0;
+}
+
+/* Apply styles to well */
+.well {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+}
+
+/* Apply styles to panels */
+.panel {
+    background-color: white;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+}
+
+/* Apply styles to select dropdown */
+#selDataset {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+
+/* Apply styles to gauge and bubble divs */
+/* #gauge, #bubble { */
+    /* Add your styles for these elements */
+/*}*/
