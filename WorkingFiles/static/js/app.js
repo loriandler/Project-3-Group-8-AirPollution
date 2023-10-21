@@ -1,8 +1,22 @@
-// STEP 1. Use D3 library to read in API from the API URL
-// Constant to hold the URL
-let url = "/test"
+// Initialize data dashboard
+function init() {
 
-// Initializes the page with a default plot
-d3.json(url).then(function(data) {
-console.log(data);
- });
+    console.log("Data from Flask (external JavaScript):", tests);
+    let dropdown = d3.select("#selDataset");
+
+    let names = tests;
+
+    names.forEach((polluntant) => {
+        console.log(polluntant);
+    
+        dropdown.append("option")
+            .text(polluntant)
+            .property("value", polluntant);
+    
+        });
+
+};
+
+
+// Call the intialize function
+init();
