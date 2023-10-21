@@ -48,7 +48,12 @@ https://www.w3schools.com/cssref/css_default_values.php-->
           <div id="sample-metadata" class="panel-body", style="color: purple;"></div>
         </div>
       </div>
+      <script>
+        let tests = {{ data3 | safe}}
+        console.log("Data from Flask:", tests);
+      </script>
       <div class="col-md-5">
+        <div id="bar"></div>
       </div>
       <div class="col-md-5">
         <div id="gauge"></div>
