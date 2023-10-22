@@ -96,8 +96,6 @@ function BarChart(sample) {
 
     // Plot the bar chart
     Plotly.newPlot("bar", [trace], layout)
-        
-    });
 
 };
 
