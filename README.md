@@ -27,8 +27,23 @@ Through our data clean up and scraping process and in order to get the data into
 The data is from the year 2022.
 
 ## Requirements
-Our project includes a <u>Mongo Database (proj3)</u>.
-We used a <u>Python Flasked-powered Java Script</u> to create a <u>dashboard page</u> with multiple charts from the data.  The <u>dropdown</u> on our dashboard allows you to select one of the four Pollutants.  The selection shows a <u>Bar Chart</u> with the mean anount of that air pollutant per the four states in 2022.  The <u>Line Chart</u> shows the max values per day in 2022 of the air pollutant selected in each of the four states giving you a visualization to compare the amounts per state across the year.
+Our project includes a <u>Mongo Database (proj3)</u> which is referenced in our app.py file.
+
+![MongoDb](WorkingFiles/static/images/mongo.png)
+
+We used a <u>Python Flasked-powered Java Script</u> to create a <u>dashboard page</u> with multiple charts from the data.  
+
+![Dashboard](WorkingFiles/static/images/dashboard.png)
+
+The <u>dropdown</u> on our dashboard allows you to select one of the four Pollutants.  The selection shows a <u>Bar Chart</u> with the mean anount of that air pollutant per the four states in 2022.  
+
+![Dropdown](WorkingFiles/static/images/dropdown.png)
+
+The <u>Line Chart</u> shows the max values per day in 2022 of the air pollutant selected in each of the four states giving you a visualization to compare the amounts per state across the year.
+
+![Linechart](WorkingFiles/static/images/linechart.png)
+
+We used plotly to create the bar and line charts and we used leaflet to create our map.
 
 
 
@@ -43,7 +58,7 @@ We used a <u>Python Flasked-powered Java Script</u> to create a <u>dashboard pag
 
 
 ## Acknowledgements:
-Thank you to everyone that helped us out with this project with their expertise!
+### <span style="color:#3D8615">Thank you to everyone that helped us out with this project with their expertise!</span>
 - Tutors:
     - Leimei Hour - tour for helping sort data, guiding the panda data frame creation & assisting in setting up functions for our first bar chart data visualization
     - Steven Thomas
