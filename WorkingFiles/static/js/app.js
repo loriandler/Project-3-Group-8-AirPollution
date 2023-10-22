@@ -16,7 +16,6 @@ function init() {
     
     });
 BarChart(names[0])
-ScatterPlot(names[0])
 LineChart(names[0])
 }
 // Function for bar chart
@@ -180,75 +179,6 @@ function optionChanged(value) {
     LineChart(value);
     ScatterPlot(value);
 };
-
-
-
-
-
-
-//     //     //set up first value in list
-//         let init_sample = names[0];
-//     //     console.log(init_sample);
-
-//     //     //Initial Plots
-//     //     Metadata(init_sample);
-//         BarChart(init_sample);
-//     //     BubbleChart(init_sample);
-//     //     GaugeChart(init_sample);
-    
-//     // }).catch(error => {
-//     //     console.error("Error fetching data: ", error);
-//     // })
-// };
-
-
-
-
-// Function for bubble chart
-// function BubbleChart(sample) {
-
-//     // Get data for bubble chart
-//     d3.json(URL).then((data) => {
-//         let sampleInfo = data.samples;
-
-//         // Filter results based on value
-//         let value = sampleInfo.filter(item => item.id == sample);
-
-//         // First index from array
-//         let valueData = value[0];
-
-//         // Set variables
-//         let otu_ids = valueData.otu_ids;
-//         let otu_labels = valueData.otu_labels;
-//         let sample_values = valueData.sample_values;
-
-//         console.log(otu_ids, otu_labels, sample_values);
-
-//         // Set up trace for bubble chart
-//         let trace1 = {
-//             x: otu_ids,
-//             y: sample_values,
-//             text: otu_labels,
-//             mode: "markers",
-//             marker: {
-//                 size: sample_values,
-//                 color: otu_ids,
-//                 colorscale: "Electric"
-//             }
-//         };
-
-//         // Set up layout for bubble chart
-//         let layout = {
-//             title: "Bacteria Per Sample",
-//             plot_bgcolor: "lightgray",
-//             hovermode: "closest",
-//             xaxis: {title: "OTU ID"},
-//         };
-
-//         // Plot the bubble chart
-//         Plotly.newPlot("bubble", [trace1], layout)
-//     });
-// };
 
 
 // Function for updating when value is changed
