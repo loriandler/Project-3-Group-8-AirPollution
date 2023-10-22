@@ -4,13 +4,13 @@ from flask_pymongo import PyMongo
 from flask.json import jsonify
 
 
-# 2. Create an app, being sure to pass __name__
+# Create an app, being sure to pass __name__
 app = Flask(__name__)
 
 app.config["MONGO_URI"] = "mongodb://localhost:27017/proj3"
 mongo = PyMongo(app)
 
-# 3. Define what to do when a user hits the index route
+# Define what to do when a user is at the read_data route
 @app.route("/")
 def read_data():
     data = mongo.db.air_pollution.find({}, {'_id': 0, 'parameter_code': 1, 'POC': 1, 'lat': 1, 'lon': 1,'parameter_name': 1,
@@ -53,6 +53,7 @@ def read_data():
     # return jsonify(uniquePollutantsList)
     return render_template('index.html', data1=result, data2=carbonMoDataList, data3=uniquePollutantsList)
 
+# Define what to do when a user is at the map route
 @app.route("/map")
 def ozoneMap():
     mapData = mongo.db.air_pollution.find({}, {'_id': 0, 'parameter_code': 1, 'POC': 1, 'lat': 1, 'lon': 1,'parameter_name': 1,
@@ -83,9 +84,9 @@ def ozoneMap():
          caliDataList.append(item)
     
     # return jsonify(mapResult)
-    return jsonify(ozoneDataList)
+    # return jsonify(ozoneDataList)
     # return jsonify(caliDataList)
-    # return render_template('index2.html', mData=mapResult, oData=ozoneDataList, cData=caliDataList)
+    return render_template('index2.html', mData=mapResult, oData=ozoneDataList, cData=caliDataList)
 
 
 if __name__ == "__main__":
