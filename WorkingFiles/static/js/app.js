@@ -98,6 +98,7 @@ function LineChart(sample) {
             "New York": "#D97230"
         };
         
+
         console.log(state);
         console.log(dates);
         console.log(maxValues);
@@ -110,6 +111,31 @@ function LineChart(sample) {
             line: {
                 color: stateColors[state] || "gray"
              }
+
+            let trace = {
+                x: dates,
+                y: maxValues,
+                mode: 'lines',
+                name: state, // Legend label for the line
+                line: {
+                    color: stateColors[state] || "gray"
+                }
+            };
+
+            traces.push(trace);
+        });
+
+        // Layout for the line chart
+        let layout = {
+            title: `Max Values of ${sample} by State`,
+            xaxis: {
+                title: 'Date'
+            },
+            yaxis: {
+                title: `Max ${sample} Value`
+            }
+            // height: 600
+
         };
 
         traces.push(trace);
