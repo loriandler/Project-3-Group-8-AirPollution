@@ -91,11 +91,36 @@ function LineChart(sample) {
         let maxValues = stateData.map(item => item.max_value);
 
 
-        let stateColors = {
-            "Minnesota": "#DABF47",
-            "California": "#2B91C2",
-            "Texas": "#B52F3E",
-            "New York": "#D97230"
+            let stateColors = {
+                "Minnesota": "#DABF47",
+                "California": "#2B91C2",
+                "Texas": "#B52F3E",
+                "New York": "#D97230"
+            }
+        
+            let trace = {
+                x: dates,
+                y: maxValues,
+                mode: 'lines',
+                name: state, // Legend label for the line
+                line: {
+                    color: stateColors[state] || "gray"
+                }
+            };
+
+            traces.push(trace);
+        });
+
+        // Layout for the line chart
+        let layout = {
+            title: `Max Values of ${sample} by State`,
+            xaxis: {
+                title: 'Date'
+            },
+            yaxis: {
+                title: `Max ${sample} Value`
+            }
+            // height: 600
         };
         
         console.log(state);
