@@ -60,111 +60,68 @@ function BarChart(sample) {
     Plotly.newPlot("bar", [trace], layout);
 };
 
-// Function for scatter chart
-function ScatterPlot(sample) {
-    // console.log("Sample:", sample);
-    // console.log("AllData:", allData);
-    
+
+    // Function for line chart
+    function LineChart(sample) {
+        console.log("Selected Sample:", sample);
         let dataAll = allData;
-    
-        let pollutantData = dataAll.filter(item => item.parameter_name == sample);
-    
-        let xticks = pollutantData.map(item => item.data_local);
-        let yticks = pollutantData.map(item => item.first_max_value);
-    
-        let stateColors = {
-            "Minnesota": "#DABF47",
-            "California": "#2B91C2",
-            "Texas": "#B52F3E",
-            "New York": "#D97230"
-        }
-    
-        let colors = xticks.map(state_name => stateColors[state_name] || "gray");
-    
-        let trace = {
-            x: xticks,
-            y: yticks,
-            mode: "markers",
-            marker: {
-                color: colors,
-                size: yticks,
-            },
-            type: "scatter"
-        };
-    
+
+        // Group data by state
+        let groupedData = {};
+        dataAll.forEach(item => {
+            if (item.parameter_name === sample) {
+                if (!groupedData[item.state_name]) {
+                    groupedData[item.state_name] = [];
+                }
+                groupedData[item.state_name].push({
+                    date: item.date_local,
+                    max_value: item.first_max_value
+                });
+            }
+        });
+
+        console.log("Grouped Data:", groupedData)
+        // Prepare data for the line chart
+        let traces = [];
+        let stateNames = Object.keys(groupedData);
+        stateNames.forEach(state => {
+            let stateData = groupedData[state];
+            let dates = stateData.map(item => item.date);
+            let maxValues = stateData.map(item => item.max_value);
+
+
+            let stateColors = {
+                "Minnesota": "#DABF47",
+                "California": "#2B91C2",
+                "Texas": "#B52F3E",
+                "New York": "#D97230"
+            }
+        
+            let trace = {
+                x: dates,
+                y: maxValues,
+                mode: 'lines',
+                name: state, // Legend label for the line
+                line: {
+                    color: stateColors[state] || "gray"
+                }
+            };
+
+            traces.push(trace);
+        });
+
+        // Layout for the line chart
         let layout = {
-            title: "Air Pollutant Readings by State (2022)",
-            plot_bgcolor: "white",
-            xaxis: { title: "Date"},
-            yaxis: { title: "Max Value of Air Pollution Parameter"}
-        };
-    
-        // Plot the bar chart
-        Plotly.newPlot("scatter", [trace], layout);
-    };
-
-
-// Function for line chart
-function LineChart(sample) {
-    console.log("Selected Sample:", sample);
-    let dataAll = allData;
-
-    // Group data by state
-    let groupedData = {};
-    dataAll.forEach(item => {
-        if (item.parameter_name === sample) {
-            if (!groupedData[item.state_name]) {
-                groupedData[item.state_name] = [];
-            }
-            groupedData[item.state_name].push({
-                date: item.date_local,
-                max_value: item.first_max_value
-            });
-        }
-    });
-
-    console.log("Grouped Data:", groupedData)
-    // Prepare data for the line chart
-    let traces = [];
-    let stateNames = Object.keys(groupedData);
-    stateNames.forEach(state => {
-        let stateData = groupedData[state];
-        let dates = stateData.map(item => item.date);
-        let maxValues = stateData.map(item => item.max_value);
-
-
-        let stateColors = {
-            "Minnesota": "#DABF47",
-            "California": "#2B91C2",
-            "Texas": "#B52F3E",
-            "New York": "#D97230"
-        }
-    
-        let trace = {
-            x: dates,
-            y: maxValues,
-            mode: 'lines',
-            name: state, // Legend label for the line
-            line: {
-                color: stateColors[state] || "gray"
+            title: `Max Values of ${sample} by State`,
+            xaxis: {
+                title: 'Date'
+            },
+            yaxis: {
+                title: `Max ${sample} Value`
             }
         };
 
-        traces.push(trace);
-    });
-
-    // Layout for the line chart
-    let layout = {
-        title: `Max Values of ${sample} by State`,
-        xaxis: {
-            title: 'Date'
-        },
-        yaxis: {
-            title: `Max ${sample} Value`
-        }
-    };
-
-    // Plot the line chart in the 'scatter' div element
+    // Plot the line chart in the 'line' div element
     Plotly.newPlot("lines", traces, layout);
 }
 
@@ -174,10 +131,9 @@ function optionChanged(value) {
     console.log(value);
 
     // Call functions
-    // Metadata(value);
     BarChart(value);
     LineChart(value);
-    ScatterPlot(value);
+    
 };
 
 
@@ -190,7 +146,7 @@ function optionChanged(value) {
     // Call functions
     //Metadata(value);
     BarChart(value);
-    ScatterPlot(value);
+    //ScatterPlot(value);
     LineChart(value);
 };
 
