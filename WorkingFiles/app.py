@@ -61,9 +61,31 @@ def ozoneMap():
     mapResult = []
     for item in mapData:
         mapResult.append(item)
+
+
+    # Ozone Data only
+    ozoneData = mongo.db.air_pollution.find({"parameter_name": "Ozone"}, {'_id': 0, 'parameter_code': 1, 'POC': 1, 'lat': 1, 'lon': 1,'parameter_name': 1,
+                'date_local': 1, 'units_of_measure': 1, 'arithmetic_mean': 1,'first_max_value': 1,
+                'AQI': 1,'state_name': 1, 'county_name': 1, 'city_name': 1}) # will through this "TypeError: Object of type ObjectId is not JSON serializable" if I don't list out all the columns I want. Not sure why.
+
+    ozoneDataList = []
+    for item in ozoneData:
+         ozoneDataList.append(item)
+
+
+    # California Data only
+    caliData = mongo.db.air_pollution.find({"state_name":"California"}, {'_id': 0, 'parameter_code': 1, 'POC': 1, 'lat': 1, 'lon': 1,'parameter_name': 1,
+                'date_local': 1, 'units_of_measure': 1, 'arithmetic_mean': 1,'first_max_value': 1,
+                'AQI': 1,'state_name': 1, 'county_name': 1, 'city_name': 1}) # will through this "TypeError: Object of type ObjectId is not JSON serializable" if I don't list out all the columns I want. Not sure why.
+
+    caliDataList = []
+    for item in caliData:
+         caliDataList.append(item)
     
     # return jsonify(mapResult)
-    return render_template('index2.html', mData=mapResult)
+    return jsonify(ozoneDataList)
+    # return jsonify(caliDataList)
+    # return render_template('index2.html', mData=mapResult, oData=ozoneDataList, cData=caliDataList)
 
 
 if __name__ == "__main__":
