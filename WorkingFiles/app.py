@@ -53,6 +53,18 @@ def read_data():
     # return jsonify(uniquePollutantsList)
     return render_template('index.html', data1=result, data2=carbonMoDataList, data3=uniquePollutantsList)
 
+@app.route("/map")
+def ozoneMap():
+    mapData = mongo.db.air_pollution.find({}, {'_id': 0, 'parameter_code': 1, 'POC': 1, 'lat': 1, 'lon': 1,'parameter_name': 1,
+                'date_local': 1, 'units_of_measure': 1, 'arithmetic_mean': 1,'first_max_value': 1,
+                'AQI': 1,'state_name': 1, 'county_name': 1, 'city_name': 1})
+    mapResult = []
+    for item in mapData:
+        mapResult.append(item)
+    
+    # return jsonify(mapResult)
+    return render_template('index2.html', mData=mapResult)
+
 
 if __name__ == "__main__":
     app.run(debug=True)
