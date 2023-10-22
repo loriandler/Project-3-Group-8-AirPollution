@@ -119,6 +119,7 @@ function BarChart(sample) {
             yaxis: {
                 title: `Max ${sample} Value`
             }
+            // height: 600
         };
 
     // Plot the line chart in the 'line' div element
