@@ -44,12 +44,6 @@ https://www.w3schools.com/cssref/css_default_values.php-->
           <select id="selDataset" onchange="optionChanged(this.value)">
           </select>
         </div>
-        <div class="panel panel-primary", style="color:navy";>
-          <div class="panel-heading">
-            <h3 class="panel-title">Air Pollutant</h3>
-          </div>
-          <div id="sample-metadata" class="panel-body", style="color: purple;"></div>
-        </div>
       </div>
       <script>
         let tests = {{ data3 | safe }}
@@ -62,13 +56,13 @@ https://www.w3schools.com/cssref/css_default_values.php-->
       <div class="col-md-5">
         <div id="bar"></div>
       </div>
-      <div class="col-md-5">
-        <div id="gauge"></div>
+      <div class="col-md-12">
+        <div id="lines"></div>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-12">
-        <div id="bubble"></div>
+      <div class="col-md-20">
+        <div id="scatter"></div>
       </div>
     </div>
   </div>
