@@ -50,7 +50,11 @@ https://www.w3schools.com/cssref/css_default_values.php-->
       </div>
       <script>
         let tests = {{ data3 | safe}}
-        console.log("Data from Flask:", tests);
+        // console.log("Data from Flask:", tests);
+      </script>
+      <script>
+        let allData = {{ data1 | safe}}
+        // console.log("Data from Flask:", allData);
       </script>
       <div class="col-md-5">
         <div id="bar"></div>
