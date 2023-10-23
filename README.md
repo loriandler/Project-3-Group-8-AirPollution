@@ -45,7 +45,10 @@ The <u>Line Chart</u> shows the max values per day in 2022 of the air pollutant 
 
 ![Linechart](WorkingFiles/static/images/linechart.png)
 
-We used plotly to create the bar and line charts and we used leaflet to create our map.  
+We used plotly to create the bar and line charts and we used leaflet to create our map.  The map contains markers for the unique sites that provided data on the pollutants and our markers display the latitude and longitude of that site.
+
+![USMap](WorkingFiles/static/images/usmap.png)
+![MapMarkers](WorkingFiles/static/images/markermap.png)
 
 
 
@@ -58,6 +61,15 @@ We used plotly to create the bar and line charts and we used leaflet to create o
 - https://www.geeksforgeeks.org/python-get-values-of-particular-key-in-list-of-dictionaries/
 - Picular (https://picular.co/): Assistance on color choices
 - https://stackoverflow.com/questions/40744027/using-pandas-read-csv-with-zip-compression & https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html : Assistance on webscraping
+
+
+## Future Work:
+If we had more time to work on the project, here are a few things we would've liked to have looked into further:
+- Being able to map out more pollutants and/or more states
+- Map out over time to see a trend over years
+- Add a horizontal bar to the charts to show when the levels are above the “danger levels”
+- Change markers so radius changes with pollutant concentration value
+- Try to map out whether sites are in urban or rural areas and compare the differences
 
 
 
