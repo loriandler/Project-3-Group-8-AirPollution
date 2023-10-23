@@ -57,6 +57,8 @@ We used plotly to create the bar and line charts and we used leaflet to create o
     - https://aqs.epa.gov/aqsweb/documents/data_api.html 
 - https://www.geeksforgeeks.org/python-get-values-of-particular-key-in-list-of-dictionaries/
 - Picular (https://picular.co/): Assistance on color choices
+- https://stackoverflow.com/questions/40744027/using-pandas-read-csv-with-zip-compression & https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html : Assistance on webscraping
+
 
 
 ## Acknowledgements:
