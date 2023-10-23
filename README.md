@@ -64,7 +64,7 @@ We used plotly to create the bar and line charts and we used leaflet to create o
 - Tutors:
     - Leimei Hour - tour for helping sort data, guiding the panda data frame creation & assisting in setting up functions for our first bar chart data visualization
     - Steven Thomas
-    - 
+    - Kourt Bailey - guiding webscraping of compressed files
 - Instructor & TA's:
     - Hunter Hollis
     - Randy & Sam
