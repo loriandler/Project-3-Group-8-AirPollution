@@ -49,6 +49,7 @@ function BarChart(sample) {
     function LineChart(sample) {
         console.log("Selected Sample:", sample);
         let dataAll = allData;
+
         // Group data by state
         let groupedData = {};
         dataAll.forEach(item => {
@@ -62,14 +63,21 @@ function BarChart(sample) {
                 });
             }
         });
+
         console.log("Grouped Data:", groupedData)
+
         // Prepare data for the line chart
         let traces = [];
         let stateNames = Object.keys(groupedData);
         stateNames.forEach(state => {
             let stateData = groupedData[state];
+
+            // Sort dates in ascending order
+            stateData.sort((a, b) => new Date(a.date) - new Date(b.date));
+
             let dates = stateData.map(item => item.date);
             let maxValues = stateData.map(item => item.max_value);
+
             let stateColors = {
                 "Minnesota": "#DABF47",
                 "California": "#2B91C2",
@@ -96,7 +104,6 @@ function BarChart(sample) {
             yaxis: {
                 title: `Max ${sample} Value`
             }
-            // height: 600
         };
     // Plot the line chart in the 'line' div element
     Plotly.newPlot("lines", traces, layout);
