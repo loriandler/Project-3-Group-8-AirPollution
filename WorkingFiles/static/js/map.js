@@ -17,41 +17,24 @@ let myMap = L.map("map", {
   }).addTo(myMap);
 
   // this works
-  let circle = L.circle([data[0]['lat'], data[0]['lon']], {
-    radius: 50000,
+//  let marker = L.marker([data[0]['lat'], data[0]['lon']], {
+//    draggable: true,
+//    title: "My First Marker"
+//  }).addTo(myMap);
+// -------------------
+for (let i = 0; i < data.length; i++) {
+  L.circle([data[i]['lat'], data[i]['lon']], {
+    fillOpacity: 0.75,
     color: '#F28871',
     fillColor: '#22325A',
     fillOpacity: 0.5,
-    title: "Marker For Site"
+    radius: 5000
   }).addTo(myMap);
-  if (data[0] && data[0].parameter_name && data[0].lat && data[0].lon) {
-    circle.bindPopup(`Parameter Name: ${data[0].parameter_name}<br>Latitude: ${data[0].lat.toString()}<br>Longitude: ${data[0].lon.toString()}`);
-  } else {
-    console.error("Invalid data:", data[0]);
-  }
-// -------------------
-//for (let i = 0; i < data.length; i++) {
-//  latOne = data[i]['lat']
-//  lonOne = data[i]['lon']
-//  let marker = L.marker([latOne,lonOne]).addTo(myMap);
+}
+// .bindPopup(`<h1>${data[i].name}</h1> <hr> <h3>Population: ${cities[i].population.toLocaleString()}</h3>`)
+
+//if (data[0] && data[0].parameter_name && data[0].lat && data[0].lon) {
+//  circle.bindPopup(`Parameter Name: ${data[0].parameter_name}<br>Latitude: ${data[0].lat.toString()}<br>Longitude: ${data[0].lon.toString()}`);
+//} else {
+//  console.error("Invalid data:", data[0]);
 //}
-
-//function(result){
-// result.forEach(function(data){
-//   var lat = data.lat;
- //   var lng = data.lng;
-//   var marker = L.marker([lat, lng]).addTo(map);//
-//});
-//}
-
-//function(result){
-//  result.forEach(function(data){
- //   var lat = data['lat'];
-//    var lon = data['lon'];
-//    var marker = L.marker([lat, lon]).addTo(map);//
-//  });
-//}
-
-//L.marker([{ marker('lat') }, { marker('lon') }]).addTo(map)  
-
-// L.marker([{ marker([data[0]['lat'], data[0]['lon']]) }]).addTo(map) - yuck
