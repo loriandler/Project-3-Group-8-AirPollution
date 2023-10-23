@@ -22,13 +22,25 @@ let myMap = L.map("map", {
 //    title: "My First Marker"
 //  }).addTo(myMap);
 // -------------------
+// Create a set to store unique lat/lon pairs
+const uniquePairs = new Set();
+// Iterate through your data
 for (let i = 0; i < data.length; i++) {
-  L.circle([data[i]['lat'], data[i]['lon']], {
-    color: '#F28871',
-    fillColor: '#22325A',
-    fillOpacity: 0.5,
-    radius: 5000
-  }).addTo(myMap);
+  const lat = data[i]['lat'];
+  const lon = data[i]['lon'];
+  // Check if this pair is unique
+  const latLonPair = `${lat}-${lon}`;
+  if (!uniquePairs.has(latLonPair)) {
+    uniquePairs.add(latLonPair);
+    // Create a marker with a popup
+    L.circle([lat, lon], {
+      color: '#F28871',
+      fillColor: '#22325A',
+      fillOpacity: 0.5,
+      radius: 5000
+    }).bindPopup(`Latitude: ${lat}, Longitude: ${lon}`)
+      .addTo(myMap);
+  }
 }
 // .bindPopup(`<h1>${data[i].name}</h1> <hr> <h3>Population: ${cities[i].population.toLocaleString()}</h3>`)
 
