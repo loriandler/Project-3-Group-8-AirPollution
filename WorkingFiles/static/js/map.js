@@ -17,10 +17,18 @@ let myMap = L.map("map", {
   }).addTo(myMap);
 
   // this works
-  let marker = L.marker([data[0]['lat'], data[0]['lon']], {
-    draggable: true,
-    title: "My First Marker"
+  let circle = L.circle([data[0]['lat'], data[0]['lon']], {
+    radius: 50000,
+    color: '#F28871',
+    fillColor: '#22325A',
+    fillOpacity: 0.5,
+    title: "Marker For Site"
   }).addTo(myMap);
+  if (data[0] && data[0].parameter_name && data[0].lat && data[0].lon) {
+    circle.bindPopup(`Parameter Name: ${data[0].parameter_name}<br>Latitude: ${data[0].lat.toString()}<br>Longitude: ${data[0].lon.toString()}`);
+  } else {
+    console.error("Invalid data:", data[0]);
+  }
 // -------------------
 //for (let i = 0; i < data.length; i++) {
 //  latOne = data[i]['lat']
