@@ -24,7 +24,6 @@ let myMap = L.map("map", {
 // -------------------
 for (let i = 0; i < data.length; i++) {
   L.circle([data[i]['lat'], data[i]['lon']], {
-    fillOpacity: 0.75,
     color: '#F28871',
     fillColor: '#22325A',
     fillOpacity: 0.5,
