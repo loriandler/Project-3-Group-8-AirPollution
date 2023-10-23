@@ -9,7 +9,9 @@
 ## Project Overview
 Our initial project proposal was to review air pollutants from a Kaggle dataset and the Enviromental Protection Agency (EPA)'s API of air pollution data.  We pulled data from both sites and found there to be so many rows of data that we were going to run into size constraints.
 
-Through our data clean up and scraping process and in order to get the data into a small enough size for our git hub progress, we ended up going from over 2000 Air Pollution Parameters from from sites across all 50 of the United States for over 40 years down to 8 pollutants, 4 states and 3 years of data.  Even this was a large amount of data.  We continued to scrape the data and ended up feeding our data into a mongo database and reporting on:
+Through our data clean up and scraping process and in order to get the data into a small enough size for our git hub progress, we ended up going from over 2000 Air Pollution Parameters from from sites across all 50 of the United States for over 40 years down to 8 pollutants, 4 states and 3 years of data.  Even this was a large amount of data.  
+
+Most of our time during class work time was spent retrieving the data and scraping it to a reasonable size that could be used to work on the data. We continued to scrape the data and ended up feeding our data into a mongo database and reporting on:
 
 <u>**Four Pollutants**</u>
 1. Carbon Monoxide
@@ -43,7 +45,7 @@ The <u>Line Chart</u> shows the max values per day in 2022 of the air pollutant 
 
 ![Linechart](WorkingFiles/static/images/linechart.png)
 
-We used plotly to create the bar and line charts and we used leaflet to create our map.
+We used plotly to create the bar and line charts and we used leaflet to create our map.  
 
 
 
@@ -58,7 +60,7 @@ We used plotly to create the bar and line charts and we used leaflet to create o
 
 
 ## Acknowledgements:
-### <span style="color:#3D8615">Thank you to everyone that helped us out with this project with their expertise!</span>
+### <span style="color:#3D8615">Thank you to everyone that helped us out on this project with their expertise!</span>
 - Tutors:
     - Leimei Hour - tour for helping sort data, guiding the panda data frame creation & assisting in setting up functions for our first bar chart data visualization
     - Steven Thomas
