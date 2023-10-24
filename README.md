@@ -41,7 +41,7 @@ The <u>dropdown</u> on our dashboard allows you to select one of the four Pollut
 
 ![Dashboard](WorkingFiles/static/images/fulldashboard.png)
 
-The <u>Line Chart</u> shows the max values per day in 2022 of the air pollutant selected in each of the four states giving you a visualization to compare the amounts per state across the year.  You can also click on and off the states in the legend to narrow your visualization to one, two or three states.
+The <u>Line Chart</u> shows the max values per day in 2022 of the air pollutant selected in each of the four states giving you a visualization to compare the amounts per state across the year.  You can also click on and off the states in the legend to narrow your visualization to one, two or three states.  You can zoom in on both the line and bar chart to view different dates or amounts as well.
 
 ![NYLinechart](WorkingFiles/static/images/NYchart.png)
 
