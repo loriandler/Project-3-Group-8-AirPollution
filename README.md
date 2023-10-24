@@ -61,6 +61,7 @@ We used plotly to create the bar and line charts and we used leaflet to create o
 - https://www.geeksforgeeks.org/python-get-values-of-particular-key-in-list-of-dictionaries/
 - Picular (https://picular.co/): Assistance on color choices
 - https://stackoverflow.com/questions/40744027/using-pandas-read-csv-with-zip-compression & https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html : Assistance on webscraping
+- Slides: https://docs.google.com/presentation/d/1hDB-4_ON9tef9-OvMqT7-UfyDlrLgGAbhKjbheFMhMM/edit?usp=sharing 
 
 
 ## Future Work:
