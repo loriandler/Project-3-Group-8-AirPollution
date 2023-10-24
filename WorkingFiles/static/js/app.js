@@ -1,7 +1,7 @@
 // Initialize data dashboard
 function init() {
     console.log("Data from Flask (external JavaScript):", tests);
-    console.log ("Data from Flask (external JavaScript):", allData);
+    console.log("Data from Flask (external JavaScript):", allData);
     let dropdown = d3.select("#selDataset");
     let names = tests;
     names.forEach((pollutant) => {
@@ -10,8 +10,8 @@ function init() {
             .text(pollutant)
             .property("value", pollutant);
     });
-BarChart(names[0])
-LineChart(names[0])
+    BarChart(names[0])
+    LineChart(names[0])
 }
 
 // Function for bar chart
@@ -19,7 +19,13 @@ function BarChart(sample) {
     console.log("Sample:", sample);
     // console.log("AllData:", allData);
     let dataAll = allData;
-    let pollutantData = dataAll.filter(item => item.parameter_name == sample);
+
+    // For this section of code, we are getting the unit of measurement for the "sample" (which is our pollutant) since some has different units of measurement for our line grapgh
+    let pollutantData = dataAll.filter(item => item.parameter_name == sample); // Getting just the polltant selected info
+    // console.log('pollutantData: ', pollutantData);
+    let unitOfMeasureForPollutant = pollutantData[0]['units_of_measure'] // Going to the first item in the array and getting the units of measurement
+    // console.log('unitOfMeasureForPollutant: ', unitOfMeasureForPollutant);
+    
     let xticks = pollutantData.map(item => item.state_name);
     let uniqueItems = [...new Set(xticks)] // https://stackoverflow.com/questions/11246758/how-to-get-unique-values-in-an-array
     // console.log('uniqueItems: ', uniqueItems);
@@ -39,7 +45,7 @@ function BarChart(sample) {
     Object.keys(groupedBarData).forEach(function(key) {
         let maxValueArray = groupedBarData[key]
 
-        const average = array => array.reduce((a, b) => a + b) / array.length; //https://stackoverflow.com/questions/29544371/finding-the-average-of-an-array-using-js
+        const average = array => array.reduce((a, b) => a + b) / array.length; //Find the average of an array. https://stackoverflow.com/questions/29544371/finding-the-average-of-an-array-using-js
         let addAve = average(maxValueArray);
         stateArithMeanArray.push(addAve);
 
@@ -73,7 +79,7 @@ function BarChart(sample) {
         title: `${sample} by State`,
         plot_bgcolor: "white",
         xaxis: { title: "State Name"},
-        yaxis: { title: `Arithmetic mean of ${sample}`}
+        yaxis: { title: `Arithmetic mean of ${sample} (${unitOfMeasureForPollutant})`}
     };
     // Plot the bar chart
     Plotly.newPlot("bar", [trace], layout);
@@ -82,6 +88,12 @@ function BarChart(sample) {
     function LineChart(sample) {
         console.log("Selected Sample:", sample);
         let dataAll = allData;
+
+        // For this section of code, we are getting the unit of measurement for the "sample" (which is our pollutant) since some has different units of measurement for our line grapgh
+        let pollutantData = dataAll.filter(item => item.parameter_name == sample); // Getting just the polltant selected info
+        // console.log('pollutantData: ', pollutantData);
+        let unitOfMeasureForPollutant = pollutantData[0]['units_of_measure'] // Going to the first item in the array and getting the units of measurement
+        // console.log('unitOfMeasureForPollutant: ', unitOfMeasureForPollutant);
 
         // Group data by state
         let groupedData = {};
@@ -135,7 +147,7 @@ function BarChart(sample) {
                 title: 'Date'
             },
             yaxis: {
-                title: `Max ${sample} Value`
+                title: `Max ${sample} Value (${unitOfMeasureForPollutant})`
             }
         };
     // Plot the line chart in the 'line' div element
