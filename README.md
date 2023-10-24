@@ -37,13 +37,13 @@ We used a <u>Python Flasked-powered Java Script</u> to create a <u>dashboard pag
 
 ![Dashboard](WorkingFiles/static/images/dashboard.png)
 
-The <u>dropdown</u> on our dashboard allows you to select one of the four Pollutants.  The selection shows a <u>Bar Chart</u> with the mean anount of that air pollutant per the four states in 2022.  
+The <u>dropdown</u> on our dashboard allows you to select one of the four Pollutants.  The selection shows a <u>Bar Chart</u> with the mean anount of that air pollutant per the four states in 2022 according to what was selected in the dropdown.
 
-![Dropdown](WorkingFiles/static/images/dropdown.png)
+![Dashboard](WorkingFiles/static/images/fulldashboard.png)
 
-The <u>Line Chart</u> shows the max values per day in 2022 of the air pollutant selected in each of the four states giving you a visualization to compare the amounts per state across the year.
+The <u>Line Chart</u> shows the max values per day in 2022 of the air pollutant selected in each of the four states giving you a visualization to compare the amounts per state across the year.  You can also click on and off the states in the legend to narrow your visualization to one, two or three states.
 
-![Linechart](WorkingFiles/static/images/linechart.png)
+![NYLinechart](WorkingFiles/static/images/NYchart.png)
 
 We used plotly to create the bar and line charts and we used leaflet to create our map.  The map contains markers for the unique sites that provided data on the pollutants and our markers display the latitude and longitude of that site.
 
@@ -61,7 +61,6 @@ We used plotly to create the bar and line charts and we used leaflet to create o
 - https://www.geeksforgeeks.org/python-get-values-of-particular-key-in-list-of-dictionaries/
 - Picular (https://picular.co/): Assistance on color choices
 - https://stackoverflow.com/questions/40744027/using-pandas-read-csv-with-zip-compression & https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_csv.html : Assistance on webscraping
-- Slides: https://docs.google.com/presentation/d/1hDB-4_ON9tef9-OvMqT7-UfyDlrLgGAbhKjbheFMhMM/edit?usp=sharing 
 
 
 ## Future Work:
@@ -71,6 +70,7 @@ If we had more time to work on the project, here are a few things we would've li
 - Add a horizontal bar to the charts to show when the levels are above the “danger levels”
 - Change markers so radius changes with pollutant concentration value
 - Try to map out whether sites are in urban or rural areas and compare the differences
+- With more time and being able to trend the data per pollutant in these ways we could come to better conclusions on seasonal outcomes and regional differences.
 
 
 
