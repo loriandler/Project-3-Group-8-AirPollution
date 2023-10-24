@@ -13,14 +13,42 @@ function init() {
 BarChart(names[0])
 LineChart(names[0])
 }
+
 // Function for bar chart
 function BarChart(sample) {
-// console.log("Sample:", sample);
-// console.log("AllData:", allData);
+    console.log("Sample:", sample);
+    // console.log("AllData:", allData);
     let dataAll = allData;
     let pollutantData = dataAll.filter(item => item.parameter_name == sample);
     let xticks = pollutantData.map(item => item.state_name);
-    let yticks = pollutantData.map(item => item.arithmetic_mean);
+    let uniqueItems = [...new Set(xticks)] // https://stackoverflow.com/questions/11246758/how-to-get-unique-values-in-an-array
+    // console.log('uniqueItems: ', uniqueItems);
+
+    let groupedBarData = {};
+    dataAll.forEach(item => {
+        if (item.parameter_name === sample) {
+            if (!groupedBarData[item.state_name]) {
+                groupedBarData[item.state_name] = [];
+            }
+            groupedBarData[item.state_name].push(item.arithmetic_mean);
+        }
+    });
+    // console.log('group Bar Data: ', groupedBarData);
+
+    let stateArithMeanArray = [];
+    Object.keys(groupedBarData).forEach(function(key) {
+        let maxValueArray = groupedBarData[key]
+
+        const average = array => array.reduce((a, b) => a + b) / array.length; //https://stackoverflow.com/questions/29544371/finding-the-average-of-an-array-using-js
+        let addAve = average(maxValueArray);
+        stateArithMeanArray.push(addAve);
+
+    });
+    // console.log('stateArithMeanArray ', stateArithMeanArray)
+    
+    // let yticks = pollutantData.map(item => item.arithmetic_mean);
+    // console.log('ytick nums: ', yticks);
+
     let stateColors = {
         "Minnesota": "#DABF47",
         "California": "#2B91C2",
@@ -28,12 +56,17 @@ function BarChart(sample) {
         "New York": "#D97230"
     }
     let colors = xticks.map(state_name => stateColors[state_name] || "gray");
+    let uniqueColors = [...new Set(colors)]
+    // console.log('colors: ', colors);
+    // console.log('Unique colors: ', uniqueColors);
+
+
     let trace = {
-        x: xticks,
-        y: yticks,
+        x: uniqueItems,
+        y: stateArithMeanArray,
         type: "bar",
         marker: {
-            color: colors,
+            color: uniqueColors,
         }
     };
     let layout = {
@@ -108,6 +141,7 @@ function BarChart(sample) {
     // Plot the line chart in the 'line' div element
     Plotly.newPlot("lines", traces, layout);
 }
+
 // Call the LineChart function when the option is changed
 function optionChanged(value) {
     // Log new value
