@@ -121,7 +121,45 @@ function BarChart(sample) {
             stateData.sort((a, b) => new Date(a.date) - new Date(b.date));
 
             let dates = stateData.map(item => item.date);
-            let maxValues = stateData.map(item => item.max_value);
+
+            let uniqueDates = [...new Set(dates)]
+            // console.log('START: This is testing unique dates:', uniqueDates);
+            // console.log('This is testing unique dates length:', uniqueDates.length);
+                
+            let eachDateMaxMaxValueArray = []
+            // let plus = 0;
+            uniqueDates.forEach(date => {
+                let dataData = stateData.filter(item => item.date === date);
+                // plus = plus + 1;
+                // console.log('This is testing dataData:', dataData);
+                // console.log('This is testing dataData LENGTH:', dataData.length)
+                // console.log('This is testing dataData:', dataData[0]['max_value']);
+    
+                let groupedBarData = [];
+                dataData.forEach(item => {
+                        groupedBarData.push(item.max_value);
+                });
+                // console.log('group Bar Data: ', groupedBarData); 
+                // console.log('END group Bar Data LENGTH: ', groupedBarData.length);
+    
+                let maxValueCompare = groupedBarData[0];
+    
+                    for (let i = 0; i < groupedBarData.length; i++) {
+                        if (groupedBarData[i] > maxValueCompare) {
+                            maxValueCompare = groupedBarData[i];
+                        }    
+                    }
+                    // console.log('maxValueCompare!!!!', maxValueCompare);
+                eachDateMaxMaxValueArray.push(maxValueCompare);
+            });
+    
+            // console.log("END of the looop:", plus);
+            // console.log('This is testing eachDateMaxMaxValueArray:', eachDateMaxMaxValueArray);
+    
+            // let maxValues = stateData.map(item => item.max_value);
+            // console.log('This is testing the maxValues:', maxValues);
+            // console.log('LAST!! This is testing the length of maxValues:', maxValues.length);            
+    
 
             let stateColors = {
                 "Minnesota": "#DABF47",
@@ -130,9 +168,9 @@ function BarChart(sample) {
                 "New York": "#D97230"
             }
             let trace = {
-                x: dates,
-                y: maxValues,
-                mode: 'lines',
+                x: uniqueDates,
+                y: eachDateMaxMaxValueArray,
+                mode: 'lines+markers',
                 name: state, // Legend label for the line
                 line: {
                     color: stateColors[state] || "gray"
