@@ -37,11 +37,11 @@ We used a <u>Python Flasked-powered Java Script</u> to create a <u>dashboard pag
 
 ![Dashboard](WorkingFiles/static/images/dashboard.png)
 
-The <u>dropdown</u> on our dashboard allows you to select one of the four Pollutants.  The selection shows a <u>Bar Chart</u> with the mean anount of that air pollutant per the four states in 2022 according to what was selected in the dropdown.
+The <u>dropdown</u> on our dashboard allows you to select one of the four Pollutants.  The selection shows a <u>Bar Chart</u> with the mean anount of that air pollutant per the four states in 2022 according to what was selected in the dropdown.  The title and y-axis changes to display the pollutant chosen and the measurement.
 
-![Dashboard](WorkingFiles/static/images/fulldashboard.png)
+![Dashboard](WorkingFiles/static/images/fullscreenmeasure.png)
 
-The <u>Line Chart</u> shows the max values per day in 2022 of the air pollutant selected in each of the four states giving you a visualization to compare the amounts per state across the year.  You can also click on and off the states in the legend to narrow your visualization to one, two or three states.  You can zoom in on both the line and bar chart to view different dates or amounts as well.
+The <u>Line Chart</u> shows the max values per day in 2022 of the air pollutant selected in each of the four states giving you a visualization to compare the amounts per state across the year.  You can also click on and off the states in the legend to narrow your visualization to one, two or three states.
 
 ![NYLinechart](WorkingFiles/static/images/NYchart.png)
 
